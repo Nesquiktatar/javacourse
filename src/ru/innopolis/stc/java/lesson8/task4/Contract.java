@@ -2,13 +2,19 @@ package ru.innopolis.stc.java.lesson8.task4;
 
 public class Contract {
 
-    public static int number;
-    String date;
+    private int numberContract;
+    private String dateContract;
+    private String[] massivContract = {"1", "2", "3"};
 
-    void contracttoact(int number,String date) {
-        this.date=date;
-        this.number=number;
+    public int getNumberContract() {
+        return numberContract;
+    }
+
+    public String getDateContract() {
+        return dateContract;
+    }
+
+    public String[] getMassivContract() {
+        return massivContract;
     }
 }
-//4. Реализовать два класса: договор и акт. В каждом сделать поля: номер, дата, список товаров (массив строк).
-// Написать класс со статическим методом конвертации договора в акт (на вход передавать договор, на выходе получаем акт).
