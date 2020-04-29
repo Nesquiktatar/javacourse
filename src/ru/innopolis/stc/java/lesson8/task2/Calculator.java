@@ -4,49 +4,39 @@ import java.util.Scanner;
 
 public class Calculator {
 
-    static Scanner inputScanner = new Scanner(System.in);
-
-
-    static void subtractionInt(int a, int b) {
-        System.out.println("Разность между первым и вторым числом = " + (a - b));
+    protected static int subtractionInt(int a, int b) {
+        return (a - b);
     }
 
-    static void additionInt(int a, int b) {
-        System.out.println("Сумма между первым и вторым числом = " + a + b);
+    protected static int additionInt(int a, int b) {
+        return (a + b);
     }
 
-    static void multiplicationInt(int a, int b) {
-        System.out.println("Произведение между первым и вторым числом = " + a * b);
+    protected static int multiplicationInt(int a, int b) {
+        return (a * b);
     }
 
-    static void divisionInt(int a, int b) {
-        System.out.println("Соотношение между первым и вторым числом = " + a / b);
+    protected static int divisionInt(int a, int b) {
+        return (a / b);
     }
 
-    static void percentInt(int a, int b) {
-        int userPercent = inputScanner.nextInt();
-        System.out.println(userPercent + " процентов от числа " + a + " = " + b / (100 * userPercent));
+    protected static int percentInt(int a, int percent) { return (a / (100 * percent)); }
+
+    protected static double subtractionDouble(double a, double b) {
+        return (a - b);
     }
 
-    static void subtractionDoule(double a, double b) {
-        System.out.println("Разность между первым и вторым числом = " + (a - b));
+    protected static double additionDouble(double a, double b) {
+        return (a + b);
     }
 
-    static void additionDouble(double a, double b) {
-        System.out.println("Сумма между первым и вторым числом = " + a + b);
+    protected static double multiplicationDouble(double a, double b) {
+        return (a * b);
     }
 
-    static void multiplicationDouble(double a, double b) {
-        System.out.println("Произведение между первым и вторым числом = " + a * b);
+    protected static double divisionDouble(double a, double b) {
+        return (a / b);
     }
 
-    static void divisionDouble(double a, double b) {
-        System.out.println("Соотношение между первым и вторым числом = " + a / b);
-    }
-
-    static void percentDouble(double a, double b) {
-
-        int userPercent = inputScanner.nextInt();
-        System.out.println(userPercent + " процентов от числа " + a + " = " + b / (100 * userPercent));
-    }
+    protected static double percentDouble(double a, double percent) { return a / (100 * percent); }
 }

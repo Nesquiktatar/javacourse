@@ -4,7 +4,25 @@ public class Contract {
 
     private int numberContract;
     private String dateContract;
-    private String[] massivContract = {"1", "2", "3"};
+    private String[] massivContract ;
+
+    Contract(int numberContract, String dateContract, String[] massivContract){
+        this.numberContract=numberContract;
+        this.dateContract=dateContract;
+        this.massivContract=massivContract;
+    }
+
+    public void setDateContract(String dateContract) {
+        this.dateContract = dateContract;
+    }
+
+    public void setNumberContract(int numberContract) {
+        this.numberContract = numberContract;
+    }
+
+    public void setMassivContract(String[] massivContract) {
+        this.massivContract = massivContract;
+    }
 
     public int getNumberContract() {
         return numberContract;

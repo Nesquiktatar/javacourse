@@ -5,63 +5,49 @@ import org.w3c.dom.ls.LSOutput;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-import static ru.innopolis.stc.java.lesson8.task3.Box.boxNumber;
-import static ru.innopolis.stc.java.lesson8.task3.Box.printOutCount;
+import static ru.innopolis.stc.java.lesson8.task3.Box.*;
 
 public class Gifts {
     public static void main(String[] args) {
 
-        System.out.println("Сколько коробок вы хотите добавить?");
         Scanner inputScanner = new Scanner(System.in);
+        System.out.println("Сколько коробок вы хотите добавить?");
         int userNumber = inputScanner.nextInt();
-
         System.out.println("Выберите цвет:");
         String userColor = inputScanner.next();
-
         System.out.println(" Размер x стоит 100 рублей \t\n Размер s стоит 150 рублей \t\n Размер m стоит 200 рублей" +
                 "\t\n Размер l стоит 400 рублей\t\n");
-        System.out.println("Введите размер коробки:");
-        String sizeString = inputScanner.next();
-        char userSize = sizeString.charAt(sizeString.length() - 1);
 
-        switch (userSize) {
-            case ('x'):
-                for (int i = 0; i < userNumber; i++) {
-                    Box newboxx = new Box('x', userColor, 100);
-                }
-                System.out.println("Создано " + userNumber + (" коробок размера " + sizeString + ".\n У всех коробок цвет : " + userColor));
+            System.out.println("Введите размер коробки:");
+            String sizeString = inputScanner.next();
 
-                break;
-            case ('s'):
-                for (int i = 0; i < userNumber; i++) {
-                    Box newboxx = new Box('s', userColor, 150);
-                }
-                System.out.println("Создано " + userNumber + (" коробок размера " + sizeString + ".\n У всех коробок цвет : " + userColor));
+            char userSize = sizeString.charAt(sizeString.length() - 1);
+            int cost = 0;
+            switch (userSize) {
 
-                break;
-            case ('m'):
-                for (int i = 0; i < userNumber; i++) {
-                    Box newboxx = new Box('m', userColor, 200);
-                }
-                System.out.println("Создано " + userNumber + (" коробок размера " + sizeString + ".\n У всех коробок цвет : " + userColor));
+                case ('x'):
+                    cost = 100;
+                    break;
+                case ('s'):
+                    cost = 150;
+                    break;
+                case ('m'):
+                    cost = 200;
+                    break;
+                case ('l'):
+                    cost = 250;
+                    break;
+                default:
+                    System.out.println("Выберите размер коробки из списка");
+            }
+            for (int i = 0; i < userNumber; i++) {
+                Box newBox = new Box(userSize, userColor, cost);
+            }
 
-                break;
-            case ('l'):
-                for (int i = 0; i < userNumber; i++) {
-                    Box newboxx = new Box('l', userColor, 250);
-                }
-                System.out.println("Создано " + userNumber + (" коробок размера " + sizeString + ".\n У всех коробок цвет : " + userColor));
+        System.out.printf("Cоздано %s коробок размера %s .\nУ всех коробок цвет %s .\nОбщая стоимость всех коробок = %s.",
+                userNumber,sizeString, userColor, cost * userNumber);
 
-                break;
-            default:
-                System.out.println("Выберите размер коробки из списка");
-
-        }
-
-        printOutCount();
+            System.out.println("\nПоздравляю! Мы в сумме выпустили " + getBoxNumber() + " коробок.");
 
     }
 }
-
-
-
