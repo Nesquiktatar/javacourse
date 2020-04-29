@@ -26,20 +26,20 @@ public abstract class Person implements Run, Swim {
             String userChoice = inputScanner.next();
             if (userChoice.equals("Run")) {
                 woman.running();
-                System.out.printf("Now %s have %s energy and %s health", userName, (userEnergy + woman.energy), userHealth + woman.health);
+                System.out.printf("Now %s have %s energy and %s health", userName, (userEnergy + woman.getEnergy()), userHealth + woman.getHealth());
             } else if (userChoice.equals("Swim")) {
                 woman.swimming();
-                System.out.printf("Now %s have %s energy and %s health", userName, userEnergy + woman.energy, userHealth + woman.health);
+                System.out.printf("Now %s have %s energy and %s health", userName, userEnergy + woman.getEnergy(), userHealth + woman.getHealth());
             } }else if (userType.equals("M")) {
                 Man man = new Man(userName, userAge, userEnergy, userHealth);
                 System.out.println("What you want him to do? Run or Swim?");
                 String userChoice2 = inputScanner.next();
                 if (userChoice2.equals("Run")) {
                     man.running();
-                    System.out.printf("Now %s have %s energy and %s health", userName, (userEnergy + man.energy), userHealth + man.health);
+                    System.out.printf("Now %s have %s energy and %s health", userName, (userEnergy + man.getHealth()), userHealth + man.getHealth());
                 } else if (userChoice2.equals("Swim")) {
                     man.swimming();
-                    System.out.printf("Now %s have %s energy and %s health", userName, userEnergy + man.energy, userHealth + man.health);
+                    System.out.printf("Now %s have %s energy and %s health", userName, userEnergy + man.getEnergy(), userHealth + man.getHealth());
                 }
             }
         }

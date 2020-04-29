@@ -5,13 +5,13 @@ import ru.innopolis.stc.java.lesson9.task2.Swim;
 
 public class Dog extends Animal implements Run, Swim {
 
-    private int age;
-    private String color;
-    private String name;
+
     private String type="dog";
 
-    Dog(int age, String name, String color) {
+    protected Dog(int age, String name, String color) {
+        super(age, name, color);
     }
+
 
     @Override
     public String getType() {

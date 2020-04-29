@@ -5,14 +5,12 @@ import ru.innopolis.stc.java.lesson9.task2.Run;
 import ru.innopolis.stc.java.lesson9.task2.Swim;
 
 public class Duck  extends Animal implements Fly, Run, Swim {
-    int age;
-    String color;
-    String name;
+
     String type = "duck";
 
-    Duck(int age, String name, String color) {
+    protected Duck(int age, String name, String color) {
+        super(age, name, color);
     }
-
 
     @Override
     public String getType() {
