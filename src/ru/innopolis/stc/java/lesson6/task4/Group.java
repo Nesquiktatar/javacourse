@@ -3,7 +3,7 @@ package ru.innopolis.stc.java.lesson6.task4;
 public class Group {
 
     private String nameOfGroup;
-    private final Student[] inabitants;
+    private  Student[] inabitants;
 
     public Group(int numberOfStudents){
         inabitants = new Student[numberOfStudents];

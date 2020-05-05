@@ -8,7 +8,7 @@ public enum Drinks {
     JUICE(100);
 
     private int price;
-
+    
     Drinks(int price) {
         this.price = price;
     }

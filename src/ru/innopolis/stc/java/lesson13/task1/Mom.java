@@ -17,6 +17,8 @@ public class Mom {
                 Child.eat(feedFood);
             }catch (Exception e){
                 System.out.println(e.getMessage());
+            }finally {
+                System.out.println("Спасибо, мама!\n");
             }
 
 

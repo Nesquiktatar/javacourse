@@ -1,6 +1,7 @@
 package ru.innopolis.stc.java.lesson7.task1;
 
 import java.security.PublicKey;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Starter {
@@ -10,33 +11,27 @@ public class Starter {
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Меню : ");
+        System.out.println(Arrays.toString(Drinks.values()));
 
+        System.out.println();
         System.out.print(Drinks.SPRITE + " " );
         System.out.println(Drinks.SPRITE.getPrice() + " рублей");
-
         System.out.print(Drinks.FANTA + " " );
         System.out.println(Drinks.FANTA.getPrice() + " рублей");
-
         System.out.print(Drinks.MIRINDA + " " );
         System.out.println(Drinks.MIRINDA.getPrice() + " рублей");
-
         System.out.print(Drinks.WATER + " " );
         System.out.println(Drinks.WATER.getPrice() + " рублей");
-
         System.out.print(Drinks.JUICE + " " );
         System.out.println(Drinks.JUICE.getPrice() + " рублей");
-
         System.out.println();
 
         Scanner inputScanner =  new Scanner ( System.in) ;
-
         String usernameDrink;
         System.out.println("Выберите один из напитков");
         usernameDrink = inputScanner.nextLine();
 
         Starter starter = new Starter();
-
-
 
         switch ( usernameDrink) {
             case ("SPRITE") : starter.inc(50); break;
@@ -49,16 +44,6 @@ public class Starter {
 
         }
 
-
-
-
-/*
-        Starter starter2 = new Starter();
-        starter2.inc(45);
-        starter2.inc(-100);
-        starter2.inc(450);
-        starter2.inc(-600);
-*/
         System.out.println();
     }
 
@@ -77,8 +62,6 @@ public class Starter {
         else
             System.out.println("У вас не хватает:" + Math.abs(money) +  " рублей\nПожалуйсте выберите другой напиток или пополните баланс.");
         Thread.sleep(100);
-
-
 
     }
 
