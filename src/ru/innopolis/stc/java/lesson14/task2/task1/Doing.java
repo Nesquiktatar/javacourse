@@ -18,7 +18,7 @@ public class Doing {
         logr.setLevel(Level.ALL);
 
         try {
-            FileHandler fh = new FileHandler("VenedictMachine.log",true);
+            FileHandler fh = new FileHandler("VendingMachine.log",true);
             fh.setLevel(Level.ALL);
             fh.setFormatter(new SimpleFormatter());
             logr.addHandler(fh);
@@ -26,59 +26,40 @@ public class Doing {
             logr.log(Level.SEVERE,"File logger is not working",e);
         }
         System.out.println("Меню : ");
-        System.out.println(Arrays.toString(Menu.values()));
-        System.out.println();
-        System.out.print(Menu.SPRITE + " ");
-        System.out.println(Menu.SPRITE.getPrice() + " рублей");
-        System.out.print(Menu.FANTA + " ");
-        System.out.println(Menu.FANTA.getPrice() + " рублей");
-        System.out.print(Menu.MIRINDA + " ");
-        System.out.println(Menu.MIRINDA.getPrice() + " рублей");
-        System.out.print(Menu.WATER + " ");
-        System.out.println(Menu.WATER.getPrice() + " рублей");
-        System.out.print(Menu.JUICE + " ");
-        System.out.println(Menu.JUICE.getPrice() + " рублей");
+        System.out.println(Menu.SPRITE);
+        System.out.println(Menu.FANTA);
+        System.out.println(Menu.MIRINDA);
+        System.out.println(Menu.WATER);
+        System.out.println(Menu.JUICE);
         System.out.println();
 
-        System.out.println("Выберите один из напитков.\n Если хотите завршить покупку наберите \"Завершить покупку\"");
-       while (inputScanner.hasNext()) {
-           System.out.println("first");
+
+       do {
+           System.out.println("Выберите один из напитков по названию.\n Если хотите завершить покупку наберите \"quit\"");
            String usernameDrink;
-         //  System.out.println("Выберите один из напитков.\n Если хотите завршить покупку наберите \"Завершить покупку\"");
-           usernameDrink = inputScanner.nextLine();
-           if ("Завершить покупку".equals(usernameDrink)) {
-               break;
-           }
+           usernameDrink = inputScanner.next();
            logr.log(Level.CONFIG, "Пользователь выбрал напиток: " + usernameDrink);
+           if ("quit".equals(usernameDrink)) {
+               System.out.println("Выход из программы.");
+               break; }
 
-           Doing starter = new Doing();
-
-           try {
-               switch (usernameDrink) {
-                   case ("SPRITE"):
-                       starter.inc(50);
-                       break;
-                   case ("FANTA"):
-                       starter.inc(60);
-                       break;
-                   case ("MIRINDA"):
-                       starter.inc(70);
-                       break;
-                   case ("WATER"):
-                       starter.inc(40);
-                       break;
-                   case ("JUICE"):
-                       starter.inc(100);
-                       break;
-                   default:
-                       throw new Exception();
-               }
-           } catch (Exception e) {
-               logr.log(Level.SEVERE, "Пользователь НЕ выбрал напиток из списка.");
-               System.out.println("Пожалуйста выберите напиток из меню.");
+           try{
+               Menu userChoice = Menu.valueOf(usernameDrink.toUpperCase());
+               Doing starter = new Doing();
+               starter.inc(userChoice.getPrice());
+           }catch (IllegalArgumentException e){
+               logr.log(Level.WARNING,"the specified enum type has\n" +
+                       "no constant with the specified name, or the specified\n" +
+                       "class object does not represent an enum type",e);
+               System.out.println("Введеные вами данные не подходят, пожалуйста выберите напиток из меню.");
+           }catch (NullPointerException e){
+               logr.log(Level.WARNING,"Пользователь ничего не ввел. is null",e);
+               System.out.println("Вы ничего не ввели, пожалуйства выберите напиток из меню.");
+           }catch (InterruptedException e){
+               logr.log(Level.WARNING," InterruptedException ",e);
+               System.out.println("New exception");
            }
-
-       }
+       }while (true);
         System.out.println();
     }
 
@@ -92,11 +73,16 @@ public class Doing {
 
         money += userMoney;
 
-        if (money >= 0)
-            System.out.println("У вас осталось : " + money + " рублей. \nВозмьите ваш напиток "); // как добавить имя напитка?
+        if (money >= 0){
+            logr.log(Level.INFO,"Баланс пользователя положительный. Выдача напитка.");
+            System.out.println("У вас осталось : " + money + " рублей. \nВозмьите ваш напиток \n");
+
+        } // как добавить имя напитка?
         else{
-            logr.log(Level.WARNING,"Количество денег меньше нуля.");
-            System.out.println("У вас не хватает:" + Math.abs(money) + " рублей\nПожалуйсте выберите другой напиток или пополните баланс.");}
+            logr.log(Level.WARNING,"Количество денег меньше нуля. Пользователь не получил напиток.");
+            System.out.println("У вас не хватает:" + Math.abs(money) + " рублей\nПожалуйсте выберите другой напиток или пополните баланс.");
+            money=userMoney;
+            System.out.println("Ваш баланс: " + money);}
         Thread.sleep(100);
 
     }
