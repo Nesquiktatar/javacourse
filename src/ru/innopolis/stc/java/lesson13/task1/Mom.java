@@ -1,5 +1,8 @@
 package ru.innopolis.stc.java.lesson13.task1;
 
+import ru.innopolis.stc.java.lesson12.task3.Sout;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Mom {
@@ -7,10 +10,13 @@ public class Mom {
 
 
         Scanner in = new Scanner(System.in);
-        System.out.println("Чем накормим ребенка?");
-        while(in.hasNext()) {
+
+        do {
+            System.out.println("Чем накормим ребенка?\n Чтобы перестать кормить наберите \"quit\"");
+            System.out.print("Ребенок любит: " + Arrays.toString(Food.values()));
             String feedFood = in.nextLine();
-            if("exit".equals(feedFood)){
+
+            if("quit".equals(feedFood)){
                 System.out.println("STOP Feeding");
                 break;}
             try{
@@ -20,9 +26,7 @@ public class Mom {
             }finally {
                 System.out.println("Спасибо, мама!\n");
             }
-
-
-        }
+        }while (true);
 
 
     }
