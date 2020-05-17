@@ -18,7 +18,7 @@ public enum Menu {
 
     public String toString() {
         return "Название напитка ='" + name + '\'' +
-                ", стоимость = " + price + " рублей";
+                ", стоимость = " + price + " рублей\n";
     }
 
     public String getName(){return name;}

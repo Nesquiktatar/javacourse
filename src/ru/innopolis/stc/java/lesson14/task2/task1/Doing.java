@@ -1,5 +1,7 @@
 package ru.innopolis.stc.java.lesson14.task2.task1;
 
+import ru.innopolis.stc.java.lesson13.task1.Food;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -25,12 +27,8 @@ public class Doing {
         }catch (IOException e){
             logr.log(Level.SEVERE,"File logger is not working",e);
         }
-        System.out.println("Меню : ");
-        System.out.println(Menu.SPRITE);
-        System.out.println(Menu.FANTA);
-        System.out.println(Menu.MIRINDA);
-        System.out.println(Menu.WATER);
-        System.out.println(Menu.JUICE);
+        System.out.println("Меню : " +Arrays.toString(Menu.values()));
+       
         System.out.println();
 
 
