@@ -2,7 +2,7 @@ package ru.innopolis.stc.java.lesson9.task1;
 
 import java.util.Scanner;
 
-public class Main {
+public class Farm {
     public static void main(String[] args) {
         System.out.println("Какое животное хотите добавить?\nDuck\nDog\nCat");
         Scanner inputScanner = new Scanner(System.in);

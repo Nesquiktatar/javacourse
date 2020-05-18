@@ -8,12 +8,16 @@ public class Dog extends Animal implements Run, Swim {
 
 
     protected Dog(int age, String name, String color) {
-        super(age, name, color);
+        super(age, color);
     }
 
     @Override
-    public String getType() {
-        return String.valueOf(Type.DOG);
+    public String getName() {
+        return null;
+    }
+
+    public AnimalType getType() {
+        return AnimalType.DOG;
     }
 
     @Override

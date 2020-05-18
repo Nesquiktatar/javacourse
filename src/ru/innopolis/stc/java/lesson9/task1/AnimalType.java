@@ -1,13 +1,13 @@
 package ru.innopolis.stc.java.lesson9.task1;
 
-public enum Type {
+public enum AnimalType {
     CAT ("КОШКА"),
     DOG ("СОБАКА"),
     DUCK("УТКА");
 
     private String type;
 
-    Type (String type){
+    AnimalType(String type){
         this.type=type;
     }
 

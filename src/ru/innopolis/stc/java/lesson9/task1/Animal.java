@@ -1,5 +1,7 @@
 package ru.innopolis.stc.java.lesson9.task1;
 
+import ru.innopolis.stc.java.test.Anonymous;
+
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
@@ -7,11 +9,10 @@ public abstract class Animal {
 
     private int age;
     private String color;
-    private String name;
 
-    public Animal(int age, String name, String color) {
+
+    public Animal(int age, String color) {
         this.age=age;
-        this.name=name;
         this.color=color;
     }
 
@@ -23,16 +24,8 @@ public abstract class Animal {
         this.color = color;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public abstract String getName();
 
-    public String getName() {
-        return name;
-    }
-
-    public abstract String getType();
-
-
+    public abstract AnimalType getType();
 
 }
