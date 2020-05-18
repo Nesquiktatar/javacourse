@@ -4,16 +4,13 @@ import ru.innopolis.stc.java.lesson9.task2.Run;
 
 public class Cat extends Animal implements Run {
 
-
-    String type="cat";
-
     protected Cat(int age, String name, String color) {
         super(age, name, color);
     }
 
     @Override
     public String getType() {
-        return type;
+        return String.valueOf(Type.CAT);
     }
 
     @Override

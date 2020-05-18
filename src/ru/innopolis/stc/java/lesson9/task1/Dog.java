@@ -6,16 +6,14 @@ import ru.innopolis.stc.java.lesson9.task2.Swim;
 public class Dog extends Animal implements Run, Swim {
 
 
-    private String type="dog";
 
     protected Dog(int age, String name, String color) {
         super(age, name, color);
     }
 
-
     @Override
     public String getType() {
-        return type;
+        return String.valueOf(Type.DOG);
     }
 
     @Override

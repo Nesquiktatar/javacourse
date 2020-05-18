@@ -4,9 +4,8 @@ import ru.innopolis.stc.java.lesson9.task2.Fly;
 import ru.innopolis.stc.java.lesson9.task2.Run;
 import ru.innopolis.stc.java.lesson9.task2.Swim;
 
-public class Duck  extends Animal implements Fly, Run, Swim {
+public  class Duck  extends Animal implements Fly, Run, Swim {
 
-    String type = "duck";
 
     protected Duck(int age, String name, String color) {
         super(age, name, color);
@@ -14,9 +13,8 @@ public class Duck  extends Animal implements Fly, Run, Swim {
 
     @Override
     public String getType() {
-        return type;
+        return String.valueOf(Type.DUCK);
     }
-
 
     @Override
     public void flying() {
