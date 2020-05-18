@@ -1,23 +1,18 @@
 package ru.innopolis.stc.java.lesson15.task1;
 
-import static java.nio.file.StandardCopyOption.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-
-//Написать программу, которая будет создавать, переименовывать, копировать и удалять файл.
 public class Files {
 
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the name of txt file:");
         String fileName = in.next();
-
-        File directory = new File("D:\\New Folder");
+        System.out.println("Enter the full path.");
+        String filePath = in.next();
+        File directory = new File(filePath);
         File file = new File(directory, fileName + ".txt");
-
-
 
         if (directory.mkdir()) {
             System.out.println("Created the catalog: " + directory.getName());
