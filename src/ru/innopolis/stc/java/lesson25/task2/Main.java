@@ -8,10 +8,8 @@ public class Main {
         BasketImpl basketImpl = new BasketImpl();
         basketImpl.addProduct("Telephone", 3);
         basketImpl.addProduct("I Pad", 341);
-
         basketImpl.addProduct("I Phone", 3234);
-        basketImpl.printBasket();
+        System.out.println(basketImpl.getProductQuantity("Telephone"));
         basketImpl.clear();
-        basketImpl.printBasket();
 }
 }
