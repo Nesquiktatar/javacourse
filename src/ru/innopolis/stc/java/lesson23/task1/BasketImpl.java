@@ -14,8 +14,13 @@ public class BasketImpl implements Basket {
     }
 
     @Override
-    public void removeProduct(String product) {
-        productLinkedList.remove();
+    public void removeProduct(String productName) {
+        for (Product product: productLinkedList) {
+            if (product.getProductName().equals(productName)) {
+                productLinkedList.remove(product);
+                break;
+            }
+        }
     }
 
     @Override
@@ -62,6 +67,13 @@ public class BasketImpl implements Basket {
            }
         }
         return productQuantity;
+    }
+
+    public void printProducts() {
+        for (Product product : productLinkedList) {
+            System.out.println("Product name is: " + product.getProductName()
+                    + "  Product count is: " + product.getQuantity());
+        }
     }
 }
 

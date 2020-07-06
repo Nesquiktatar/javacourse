@@ -10,7 +10,11 @@ public class Main {
         basketImpl.addProduct("TV", 2);
         basketImpl.addProduct("Microwave oven", 1);
         basketImpl.addProduct("Gas oven", 3);
+
+        basketImpl.printProducts();
         basketImpl.removeProduct("Telephone");
+        basketImpl.printProducts();
+
         basketImpl.updateProductQuantity("TV", 3);
         basketImpl.clear();
 
